@@ -91,15 +91,34 @@ body > a img:hover {
 	right: 0;
 	width: 100%;
 	height: auto;
+	animation: img_toggle 2s steps(1) infinite;
+	--img1: 1;
+	--img2: 0;
+}
+@property --img1 {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
+}
+@property --img2 {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
 }
 .floating-icon2 img:nth-child(1) {
-	animation: img_toggle 2s steps(1) infinite;
+	opacity: var(--img1);
+	-moz-animation: img_toggle_moz 2s steps(1) infinite 1s;
 }
 
 .floating-icon2 img:nth-child(2) {
-	animation: img_toggle 2s steps(1) infinite 1s;
+	opacity: var(--img2);
+	-moz-animation: img_toggle_moz 2s steps(1) infinite;
 }
 @keyframes img_toggle {
+	0% { --img1: 0; --img2: 1; }
+	50% { --img1: 1; --img2: 0; }
+}
+@-moz-keyframes img_toggle_moz {
 	0% { opacity: 0; }
 	50% { opacity: 1; }
 }
@@ -231,7 +250,7 @@ body > a img:hover {
 		<hr/>
 
 		<p class="small">
-			If you want any things to be added here, you can contribute them on <a href="https://github.com/NanahiraCommunity/nanahira.community">GitHub</a> or the Discord link above.
+			If you want any things to be added here, you can contribute them on <a href="https://github.com/NanahiraCommunity/nanahira.community">GitHub</a> or the chat links above.
 		</p>
 
 		<div class="floating-icon">
