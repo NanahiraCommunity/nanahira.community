@@ -17,11 +17,17 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: Mamelon, cursive, sans-serif;
 }
 body {
-	padding: 1em;
+	padding: 1em 2em;
 	margin: 1em auto;
 	background-color: white;
 	border-radius: 1em;
 	max-width: 80ch;
+	box-shadow: 0 0 40px #ffffff40, 0 0 16px #f7c1c980 inset;
+}
+@media screen and (max-width: 600px) {
+	body {
+		padding: 1em;
+	}
 }
 hr {
 	max-width: 128px;
@@ -32,12 +38,77 @@ hr {
 a {
 	color: #dd6870;
 }
+body > ul {
+	padding-left: 1em;
+}
+li {
+	padding: 0.5ex 0;
+}
 .small {
 	font-size: 8pt;
 	text-align: center;
 }
+body > img, body > a > img {
+	display: block;
+	width: 400px;
+	min-width: 80%;
+	max-width: 100%;
+	margin: 2em auto;
+	border-radius: 1em;
+	box-shadow: 0 3px 20px #f7c1c980;
+}
+body > a img {
+	position: relative;
+	transition: box-shadow 0.2s ease-out, bottom 0.2s ease-out;
+	bottom: 0;
+}
+body > a img:hover {
+	box-shadow: 0 3px 30px #f7c1c9ff;
+	bottom: 2px;
+}
+.floating-icon, .floating-icon2 {
+	display: block;
+	position: fixed;
+	transform-origin: center center;
+	left: 50%;
+	top: 4em;
+	pointer-events: none;
+	width: 96px;
+	z-index: -1;
+	animation: floating-icon-animation 1s steps(2, end) alternate infinite;
+}
+.floating-icon2 {
+	top: unset;
+	bottom: 4em;
+	transform: translate(420px, -128px);
+	animation: unset;
+	width: 128px;
+}
+.floating-icon2 img {
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: auto;
+}
+.floating-icon2 img:nth-child(1) {
+	animation: img_toggle 2s steps(1) infinite;
+}
+
+.floating-icon2 img:nth-child(2) {
+	animation: img_toggle 2s steps(1) infinite 1s;
+}
+@keyframes img_toggle {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+}
+@keyframes floating-icon-animation {
+	from { transform: translateX(-500px) rotate(8deg); }
+	to { transform: translateX(-500px) rotate(-16deg); }
+}
 </style>
-		<base href="https://nanahira.community/">
+		<!-- <base href="https://nanahira.community/"> -->
 		<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
 
 		<meta name="theme-color" content="#f7c1c9">
@@ -48,7 +119,7 @@ a {
 		<meta name="robots" content="index,follow">
 		<meta name="googlebot" content="index,follow">
 
-		<meta property="og:url" content="https://example.com/page.html">
+		<meta property="og:url" content="https://nanahira.community">
 		<meta property="og:type" content="website">
 		<meta property="og:title" content="Fan website for Nanahira">
 		<meta property="og:description" content="Links to fan content like Nanahira Discord or Nanahira Minecraft Server">
@@ -61,29 +132,114 @@ a {
 		<meta name="twitter:title" content="Fan website for Nanahira">
 		<meta name="twitter:description" content="Links to fan content like Nanahira Discord or Nanahira Minecraft Server">
 
-	      <meta itemprop="name" content="Fan website for Nanahira">
-	      <meta itemprop="description" content="Links to fan content like Nanahira Discord or Nanahira Minecraft Server">
+		<meta itemprop="name" content="Fan website for Nanahira">
+		<meta itemprop="description" content="Links to fan content like Nanahira Discord or Nanahira Minecraft Server">
 	</head>
 	<body>
 		<h1>ななひら Community</h1>
 		<p>
-		This is a fan website for <b>ななひら (Nanahira)</b> / confetto - <a href="https://twitter.com/nanahira">Twitter</a> - <a href="https://nanahira.jp/">Nanahira's Website</a></br>
-		This website is not officially endorsed by Nanahira and is only made by a collection of fans. (our community)
+			This is a fan website for <b>ななひら (Nanahira)</b> / confetto -
+			<a href="https://twitter.com/nanahira">X/Twitter</a> -
+			<a href="https://nanahira.jp/">Nanahira's Website</a></br>
 		</p>
+		<p>
+			This website is not officially endorsed by Nanahira and is only made
+			by a collection of fans. (our community)
+		</p>
+
 		<h2>Places to find us</h2>
+		<hr/>
 		<ul>
-			<li><a href="https://discord.nanahira.community"><b>discord.nanahira.community</b></a> - Discord Server (alt link: https://discord.gg/FGgCf5e)</li>
+			<li>
+				<b>Group Chats</b>
+				<ul>
+					<li>
+						<a href="https://discord.nanahira.community"><b>discord.nanahira.community</b></a>
+						- Discord (alt link: <a href="https://discord.gg/FGgCf5e">https://discord.gg/FGgCf5e</a>)
+					</li>
+					<li>
+						<a href="https://matrix.to/#/#nanahira:m.wfr.moe"><b>#nanahira:m.wfr.moe</b></a>
+						- Matrix Space (bridged)
+					</li>
+				</ul>
+			</li>
 			<li><b>mc.nanahira.community</b> - Minecraft Server hosted by Nicocchi</li>
 		</ul>
-		<h2>Previous events</h2>
-		<ul>
-			<li><a href="https://birthday23.nanahira.community">2023 Nanahira birthday fangame project</a> - a 3D platformer referencing previous Nanahira songs with a world setting based on "I’m a Messenger for U" from her Album "It's a Message for you"</li>
-			<li><a href="https://birthday22.nanahira.community">2022 Nanahira birthday fan website</a></li>
-			<li><a href="https://birthday21.nanahira.community">2021 Nanahira birthday fan website</a> - a collection of birthday wishes and artwork previously collected on our Discord server - made by Bread, WebFreak, Nicocchi, Niavde</li>
-		</ul>
 		<hr/>
+
+		<h2>Previous events</h2>
+
+		<h3>2023: "Tiny Story" fan game project (PC)</h3>
+		<a href="https://birthday23.nanahira.community">
+			<img src="static/birthday23.png" alt="in-game screenshot">
+		</a>
+		<p>
+			3D platformer referencing previous Nanahira songs with a world
+			setting based on <em>"I'm a Messenger for U"</em> from her Album
+			<em>"It's a Message for you"</em>
+		</p>
+		<p>
+			Play it here:
+			<a href="https://webfreak.itch.io/tiny-story">
+				Tiny Story (itch.io)</a>
+			[Windows/Linux]
+		</p>
+		<p>
+			Source code:
+			<a href="https://github.com/NanahiraCommunity/Birthday23">
+				https://github.com/NanahiraCommunity/Birthday23
+			</a>
+		</p>
+		<hr/>
+
+		<h3>2022: Birthday website: fan content collection</h3>
+		<a href="https://birthday22.nanahira.community">
+			<img src="static/birthday22.png" alt="in-game screenshot">
+		</a>
+		<p>
+			View it here:
+			<a href="https://birthday22.nanahira.community">
+				2022 Nanahira birthday fan website</a>
+		</p>
+		<p>
+			Source code:
+			<a href="https://github.com/NanahiraCommunity/Birthday22">
+				https://github.com/NanahiraCommunity/Birthday22
+			</a>
+		</p>
+		<hr/>
+
+		<h3>2021: Birthday website: birthday wishes and artwork collection</h3>
+		<a href="https://birthday21.nanahira.community">
+			<img src="static/birthday21.png" alt="in-game screenshot">
+		</a>
+		<p>
+			A collection of birthday wishes and artwork previously collected on
+			our Discord server - made by Bread, WebFreak, Nicocchi, Niavde
+		</p>
+		<p>
+			View it here:
+			<a href="https://birthday21.nanahira.community">
+				2021 Nanahira birthday fan website</a>
+		</p>
+		<p>
+			Source code:
+			<a href="https://github.com/NanahiraCommunity/Birthday21">
+				https://github.com/NanahiraCommunity/Birthday21
+			</a>
+		</p>
+		<hr/>
+
 		<p class="small">
 			If you want any things to be added here, you can contribute them on <a href="https://github.com/NanahiraCommunity/nanahira.community">GitHub</a> or the Discord link above.
 		</p>
+
+		<div class="floating-icon">
+			<img src="static/icon.png">
+		</div>
+		<div class="floating-icon2">
+			<img src="static/bebe1.png">
+			<img src="static/bebe2.png">
+		</div>
 	</body>
 </html>
