@@ -1,0 +1,128 @@
+@import url('fonts/mamelon3.css');
+html {
+	background-color: #f7c1c9;
+	background: linear-gradient(180deg, #ffe5e9, #f7c1c9, #eeb8d1, #e7bbfb);
+	font-family: Roboto, "Segoe UI", Helvetica, sans-serif;
+}
+h1 {
+	text-align: center;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: Mamelon, cursive, sans-serif;
+}
+body {
+	padding: 1em 2em;
+	margin: 1em auto;
+	background-color: white;
+	border-radius: 1em;
+	max-width: 80ch;
+	box-shadow: 0 0 40px #ffffff40, 0 0 16px #f7c1c980 inset;
+}
+@media screen and (max-width: 600px) {
+	body {
+		padding: 1em;
+	}
+}
+hr {
+	max-width: 128px;
+	margin: 2em auto;
+	border: none;
+	border-top: 4px dotted #f7c1c9;
+}
+a {
+	color: #dd6870;
+}
+body > ul {
+	padding-left: 1em;
+}
+li {
+	padding: 0.5ex 0;
+}
+.small {
+	font-size: 8pt;
+	text-align: center;
+}
+body > img, body > a > img {
+	display: block;
+	width: 400px;
+	min-width: 80%;
+	max-width: 100%;
+	margin: 2em auto;
+	border-radius: 1em;
+	box-shadow: 0 3px 20px #f7c1c980;
+}
+body > a img {
+	position: relative;
+	transition: box-shadow 0.2s ease-out, bottom 0.2s ease-out;
+	bottom: 0;
+}
+body > a img:hover {
+	box-shadow: 0 3px 30px #f7c1c9ff;
+	bottom: 2px;
+}
+.floating-icon, .floating-icon2 {
+	display: block;
+	position: fixed;
+	transform-origin: center center;
+	left: 50%;
+	top: 4em;
+	pointer-events: none;
+	width: 96px;
+	z-index: -1;
+	animation: floating-icon-animation 1s steps(2, end) alternate infinite;
+}
+.floating-icon2 {
+	top: unset;
+	bottom: 4em;
+	transform: translate(420px, -128px);
+	animation: unset;
+	width: 128px;
+}
+.floating-icon2 img {
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: auto;
+	animation: img_toggle 2s steps(1) infinite;
+	--img1: 1;
+	--img2: 0;
+}
+@property --img1 {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
+}
+@property --img2 {
+	syntax: "<number>";
+	inherits: true;
+	initial-value: 0;
+}
+.floating-icon2 img:nth-child(1) {
+	opacity: var(--img1);
+	-moz-animation: img_toggle_moz 2s steps(1) infinite 1s;
+}
+
+.floating-icon2 img:nth-child(2) {
+	opacity: var(--img2);
+	-moz-animation: img_toggle_moz 2s steps(1) infinite;
+}
+@keyframes img_toggle {
+	0% { --img1: 0; --img2: 1; }
+	50% { --img1: 1; --img2: 0; }
+}
+@-moz-keyframes img_toggle_moz {
+	0% { opacity: 0; }
+	50% { opacity: 1; }
+}
+@keyframes floating-icon-animation {
+	from { transform: translateX(-500px) rotate(8deg); }
+	to { transform: translateX(-500px) rotate(-16deg); }
+}
+@media screen and (max-width: 800px) {
+	.floating-icon, .floating-icon2 {
+		display: none;
+	}
+}
+
