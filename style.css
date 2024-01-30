@@ -1,7 +1,7 @@
 @import url('fonts/mamelon3.css');
 html {
 	background-color: #f7c1c9;
-	background: linear-gradient(180deg, #ffe5e9, #f7c1c9, #eeb8d1, #e7bbfb);
+	background: url(bg-stencil.svg) center 0 / auto 100vmin, linear-gradient(180deg, #ffe5e9, #f7c1c9, #eeb8d1, #e7bbfb);
 	font-family: Roboto, "Segoe UI", Helvetica, sans-serif;
 }
 h1 {
