@@ -42,7 +42,7 @@ li {
 	font-size: 8pt;
 	text-align: center;
 }
-body > img, body > a > img {
+body > img, body > a > img, .sotd .thumbnail {
 	display: block;
 	width: 400px;
 	min-width: 80%;
@@ -51,12 +51,12 @@ body > img, body > a > img {
 	border-radius: 1em;
 	box-shadow: 0 3px 20px #f7c1c980;
 }
-body > a img {
+body > a img, .sotd .thumbnail {
 	position: relative;
 	transition: box-shadow 0.2s ease-out, bottom 0.2s ease-out;
 	bottom: 0;
 }
-body > a img:hover {
+body > a:hover img, .sotd a:hover .thumbnail {
 	box-shadow: 0 3px 30px #f7c1c9ff;
 	bottom: 2px;
 }
@@ -142,4 +142,29 @@ body > a img:hover {
 .languages a {
 	text-decoration: none;
 }
-
+.sotd > a {
+	display: block;
+	position: relative;
+}
+.sotd > a:after {
+	font-size: 0.8rem;
+	display: block;
+	content: "YouTube";
+	position: absolute;
+	width: 100px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	bottom: 1em;
+	color: white;
+	background-color: red;
+	padding: 4px 0;
+	text-align: center;
+	border-radius: 1em;
+	pointer-events: none;
+	transition: 0.1s ease-in opacity;
+	opacity: 0.9;
+}
+.sotd > a:hover:after {
+	opacity: 0.1;
+}
